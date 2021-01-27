@@ -2,8 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
 
-var url = "mongodb+srv://OmerGadot:Mango3719@regpodium-v7rvx.mongodb.net/test?retryWrites=true"
-//   var url = "mongodb://localhost:27017/podium"
+let url = "mongodb+srv://omergadot:Mango3719@cluster0.cmqfr.mongodb.net/IAFproj?retryWrites=true&w=majority"
 
 module.exports = {
 
