@@ -22,6 +22,14 @@ let router = new Router({
       path: '/',
       component: () => import('./pages/UserHome.vue'),
     },
+    {
+      path: '/admin-dash',
+      component: () => import('./pages/AdminDash.vue'),
+    },
+    {
+      path: '/admin-train',
+      component: () => import('./pages/AdminTrain.vue'),
+    },
   ]
 })
 

@@ -6,7 +6,9 @@
     />
 
     <div>
-      <navbar></navbar>
+
+      <navbar ></navbar>
+      <navbar  v-show="isAdmin=='/admin-dash'" ></navbar>
     </div>
 
     <v-app style="margin-top: 100px">
@@ -32,7 +34,9 @@ export default {
     navbar,
   },
 
-  computed: {},
+  computed: {
+
+  },
 
   watch: {},
 
