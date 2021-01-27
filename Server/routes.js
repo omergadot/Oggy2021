@@ -90,7 +90,7 @@ module.exports = function (app, express) {
         res.send('loggedOut');
     });
 
-    app.get('/api/trainings', function (req, res) {
+    app.post('/api/training', function (req, res) {
         const body = req.body;
 
         if (!body) {
@@ -118,7 +118,7 @@ module.exports = function (app, express) {
             })
     });
 
-    app.post('/api/training', async function(req, res) {
+    app.get('/api/trainings', async function(req, res) {
         await Training.find({}, (err, trainings) => {
             if (err) {
                 return res.status(400);
@@ -126,7 +126,7 @@ module.exports = function (app, express) {
             if (!trainings.length) {
                 return res
                     .status(404)
-                    .json({ success: false, error: `Trainings not found` })
+                    .json({ success: false, error: `Trainings not found` });
             }
             return res.status(200).json({ trainings })
         }).catch(err => console.log(err))

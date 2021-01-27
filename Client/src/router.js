@@ -22,6 +22,10 @@ let router = new Router({
       path: '/',
       component: () => import('./pages/UserHome.vue'),
     },
+    {
+      path: '/trainings',
+      component: () => import('./pages/Training.vue'),
+    },
   ]
 })
 
