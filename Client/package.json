@@ -1,0 +1,87 @@
+{
+  "name": "omer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@branu-jp/v-drag": "^0.1.0",
+    "@shopify/draggable": "^1.0.0-beta.8",
+    "animated-number-vue": "^1.0.0",
+    "ant-design-vue": "^1.6.5",
+    "axios": "^0.21.1",
+    "chart.js": "^2.9.3",
+    "csv-export": "^1.0.2",
+    "csvjson": "^5.1.0",
+    "epic-spinners": "^1.1.0",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "handsontable": "^8.0.0",
+    "jquery": "^3.5.1",
+    "jquery-bracket": "^0.11.1",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "sweetalert2": "^8.19.0",
+    "vue": "^2.6.12",
+    "vue-analytics": "^5.22.1",
+    "vue-chartjs": "^3.5.1",
+    "vue-draggable": "^1.1.1",
+    "vue-i18n": "^8.21.1",
+    "vue-json-excel": "^0.3.0",
+    "vue-number-animation": "^1.0.5",
+    "vue-router": "^3.4.3",
+    "vue-shortkey": "^3.1.7",
+    "vue-sidebar-menu": "^4.7.1",
+    "vue-social-sharing": "^2.4.7",
+    "vue-socialmedia-share": "^1.0.1",
+    "vue-sweetalert2": "^1.6.4",
+    "vue-tournament-bracket": "^2.1.2",
+    "vuedraggable": "^2.24.1",
+    "vuetify": "^1.5.24",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@kazupon/vue-i18n-loader": "^0.5.0",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^3.12.1",
+    "@vue/cli-service": "^3.12.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "material-design-icons-iconfont": "^5.0.1",
+    "sass": "^1.26.10",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.1",
+    "vue-cli-plugin-vuetify": "^0.4.6",
+    "vue-template-compiler": "^2.6.12",
+    "vuetify-loader": "^1.6.0",
+    "vue-fragment": "^1.5.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
