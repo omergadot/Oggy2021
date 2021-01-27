@@ -1,22 +1,14 @@
 var express = require('express');
 var history = require('connect-history-api-fallback');
-// var https = require('https');
 var http = require('http');
-// var fs = require('fs');
+var MongoClient = require('mongodb').MongoClient;
+var startDb = require('./DAL/database');
 
-// var key = fs.readFileSync(__dirname + '/encryption/privkey.pem');
-// var cert = fs.readFileSync(__dirname + '/encryption/cert.pem');
-
-
-// var options = {
-//     key: key,
-//     cert: cert,
-// };
-
-// var httpsPort = process.env.HTTPS_PORT || 9000;
 var httpPort = process.env.HTTP_PORT || 8080;
 
 var cors = require('cors');
+
+startDb().catch(console.dir);
 
 var app = express();
 app.use(cors());
@@ -29,7 +21,6 @@ app.use(bodyParser.json({limit: '50mb'}))
 
 app.use(express.static(__dirname + '/dist/'))
 require('./routes.js')(app,express);
-
 
 // https.createServer(options, app).listen(httpsPort);
 http.createServer(app).listen(httpPort);
