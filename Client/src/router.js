@@ -20,8 +20,7 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'homenew',
-      component: () => import('./pages/HomeNew.vue'),
+      component: () => import('./pages/UserHome.vue'),
     },
   ]
 })
