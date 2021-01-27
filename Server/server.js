@@ -1,14 +1,16 @@
 var express = require('express');
 var history = require('connect-history-api-fallback');
 var http = require('http');
-var MongoClient = require('mongodb').MongoClient;
-var startDb = require('./DAL/database');
+var db = require('./DAL/database');
 
 var httpPort = process.env.HTTP_PORT || 8080;
 
 var cors = require('cors');
 
-startDb().catch(console.dir);
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+db.once('open', function () {
+    console.log("We're connected to MongoDB-Atlas!");
+});
 
 var app = express();
 app.use(cors());
