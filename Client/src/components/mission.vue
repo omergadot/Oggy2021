@@ -1,6 +1,6 @@
 <template>
   <v-container>
-          <hr>
+    <hr />
 
     <v-layout row wrap justify-space-between>
       <v-flex xs4 class="center">
@@ -10,9 +10,7 @@
           contain
         ></v-img>
       </v-flex>
-      <v-flex xs3 >
-        
-      </v-flex>
+      <v-flex xs3> </v-flex>
       <v-flex xs4 class="center">
         <h3>תכשיר אותי</h3>
         <h5>20 דק</h5>
