@@ -8,7 +8,6 @@
     <div>
 
       <navbar ></navbar>
-      <navbar  v-show="isAdmin=='/admin-dash'" ></navbar>
     </div>
 
     <v-app style="margin-top: 100px">
