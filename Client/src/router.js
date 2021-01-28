@@ -28,7 +28,7 @@ let router = new Router({
     },
     {
       path: '/mission/:missionId',
-      component: () => import('./pages/Training.vue'),
+      component: () => import('./pages/Train.vue'),
     },
     {
       path: '/admin-dash',
