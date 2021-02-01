@@ -22,6 +22,8 @@
     "handsontable": "^8.0.0",
     "jquery": "^3.5.1",
     "jquery-bracket": "^0.11.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.14",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.3.1",
     "sweetalert2": "^8.19.0",
