@@ -12,6 +12,7 @@
       </v-toolbar-items>
 <v-spacer></v-spacer>
       <v-toolbar-items>
+
         <v-divider vertical style="margin-top: 0px"></v-divider>
         <v-btn flat to="/admin-train"  v-if="this.isAdmin">
           ניהול הכשרות
@@ -20,6 +21,10 @@
 
         <v-btn  flat to="/admin-dash" v-if="this.isAdmin">
           dashboard
+        </v-btn>
+        <v-divider vertical style="margin-top: 0px"></v-divider>
+        <v-btn flat to="/" >
+          דף הבית
         </v-btn>
 
 
