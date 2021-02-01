@@ -1,4 +1,3 @@
-<template>
   <template>
     <v-banner two-line>
       <v-avatar
@@ -10,12 +9,11 @@
             icon="mdi-lock"
             color="white"
         >
-          mdi-lock
+          mdi-delete
         </v-icon>
       </v-avatar>
 
-      Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.
-
+הכשרה קרקעית
       <template v-slot:actions>
         <v-btn
             text
@@ -27,11 +25,15 @@
             text
             color="deep-purple accent-4"
         >
+          <v-icon
+              icon="mdi-delete"
+          >
+            mdi-delete
+          </v-icon>
         </v-btn>
       </template>
     </v-banner>
   </template>
-</template>
 
 <script>
 export default {

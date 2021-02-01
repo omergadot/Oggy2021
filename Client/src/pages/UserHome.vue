@@ -21,6 +21,7 @@
 <script>
 import mission from "@/components/mission.vue";
 
+
 export default {
   components: {
     mission,

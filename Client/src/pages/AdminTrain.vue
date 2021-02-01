@@ -23,17 +23,22 @@
         הכל
       </v-btn>
     </div>
-    <div>
+    <div class="center">
+      <trainManage ></trainManage>
 
     </div>
+
+
   </div>
 </template>
 
 <script>
+import trainManage from "@/components/trainManage.vue";
 
 export default {
-  components: {
 
+  components: {
+    trainManage,
   },
 
   mixins: [],
