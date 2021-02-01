@@ -1,11 +1,14 @@
 <template>
   <div>
     <div class="center">
-      <v-btn large round color="primary" class="addTraining" v-on:click.native="addTraining">
-        הוספת הכשרה
-      </v-btn>
 
       <h1>ניהול הכשרות</h1>
+      <div v-on:click.native="addTraining">
+        <v-btn fab dark small color="primary" class="addButton">
+          <v-icon dark>add</v-icon>
+        </v-btn>
+        <label>הוספת הכשרה</label>
+      </div>
       <br />
 
       <v-btn @click="activeTrains" >
@@ -51,9 +54,9 @@ export default {
 </script>
 
 <style scoped>
-  .addTraining {
-    right: 0;
-    position: absolute;
+  .addButton {
+    width: 20px !important;
+    height: 20px !important;
   }
 </style>
 
