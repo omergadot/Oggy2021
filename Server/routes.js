@@ -61,6 +61,18 @@ module.exports = function (app, express) {
         });
     })
 
+    app.get('/api/get_tasks', function (req, res) {
+
+        // var username = req.query.username;
+        // var comp_name = req.query.comp_name;
+
+        dal.readTasks(function (tasks) {
+            res.send(tasks);
+        });
+    })
+
+    
+
     app.put('/api/competitors/:id', isLoggedIn, function (req, res) {
         var username = req.query.username;
         var competitor = req.body;

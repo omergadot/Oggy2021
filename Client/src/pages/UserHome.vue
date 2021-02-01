@@ -10,19 +10,23 @@
     <div>
       <h4 class="right">רוצה להציל את אוגי?</h4>
 
-      <mission v-on:click.native="moveToMission('18')"></mission>
-      <mission v-on:click.native="moveToMission('19')"></mission>
-      <mission v-on:click.native="moveToMission('20')"></mission>
-      <mission v-on:click.native="moveToMission('21')"></mission>
+      <div v-for="mis in missions" :key="mis._id">
+        <mission v-on:click.native="moveToMission('18')" :misObj="mis"></mission>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import mission from "@/components/mission.vue";
-
+const axios = require("axios");
 
 export default {
+  data() {
+    return {
+      missions: [],
+    };
+  },
   components: {
     mission,
   },
@@ -38,12 +42,14 @@ export default {
     },
   },
 
-  data() {
-    return {};
-  },
   created() {},
 
-  mounted() {},
+  mounted() {
+    let self = this;
+    axios.get("/api/get_tasks").then(function (res) {
+      self.missions = res.data;
+    });
+  },
 };
 </script>
 
