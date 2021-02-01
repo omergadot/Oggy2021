@@ -3,7 +3,6 @@
     <div class="center">
       <v-btn large round color="primary" class="addTraining" v-on:click.native="addTraining">
         הוספת הכשרה
-        <v-icon left> done</v-icon>
       </v-btn>
 
       <h1>ניהול הכשרות</h1>
