@@ -3,8 +3,8 @@
     <div class="center">
 
       <h1>ניהול הכשרות</h1>
-      <div v-on:click.native="addTraining">
-        <v-btn fab dark small color="primary" class="addButton">
+      <div>
+        <v-btn fab dark small color="primary" class="addButton" v-on:click.native="addTraining">
           <v-icon dark>add</v-icon>
         </v-btn>
         <label>הוספת הכשרה</label>
