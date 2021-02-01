@@ -1,35 +1,38 @@
 <template>
   <div>
     <div class="center">
+      <h1>ניהול הכשרות</h1>
+      <br />
 
+      <v-btn @click="activeTrains" >
+      פעילות
+      </v-btn >
+      <v-divider vertical style="margin-top: 0px"></v-divider>
+      <v-btn @click="inactiveTrains" >
+        לא פעילות
+      </v-btn>
+      <v-divider vertical style="margin-top: 0px"></v-divider>
+      <v-btn @click="getAll"  >
+        הכל
+      </v-btn>
     </div>
-    <br />
     <div>
-      <h4 class="right">רוצה להציל את אוגי?</h4>
 
-      <mission v-on:click.native="moveToMission('18')"></mission>
     </div>
   </div>
 </template>
 
 <script>
-import mission from "@/components/mission.vue";
 
 export default {
   components: {
-    mission,
+
   },
 
   mixins: [],
 
   methods: {
-    moveToMission(missionId) {
-      alert(missionId);
-      document.location.href = "/mission/" + missionId;
-    },
-    omer() {
-      alert("??");
-    },
+
   },
 
   data() {
