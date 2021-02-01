@@ -23,12 +23,8 @@ let router = new Router({
       component: () => import('./pages/UserHome.vue'),
     },
     {
-      path: '/trainings',
-      component: () => import('./pages/Training.vue'),
-    },
-    {
       path: '/mission/:missionId',
-      component: () => import('./pages/Train.vue'),
+      component: () => import('./pages/Training.vue'),
     },
     {
       path: '/admin-dash',

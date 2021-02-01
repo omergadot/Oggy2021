@@ -1,32 +1,43 @@
 <template>
-    <div>
-    </div>
+  <div class="center">
+    <small>{{ missionId }}</small>
+
+    <h2>מסלולי שדה</h2>
+    <h4>נא לצפות בווידאו ולאשר את ההדרכה</h4>
+
+    <v-btn large round color="pink">
+      סיימתי
+      <v-icon left> done</v-icon>
+    </v-btn>
+  </div>
 </template>
 
+
 <script>
-    const axios = require("axios");
+const axios = require("axios");
 
-    export default {
-        components: {
-        },
+export default {
+  components: {},
 
-        mixins: [],
+  mixins: [],
 
-        data() {
-            return {
-                trainings: []
-            };
-        },
-        created() {},
-
-        mounted() {
-            axios
-                .get('http://localhost:8080/api/trainings')
-                .then(response => (this.trainings = response.trainings))
-        },
+  data() {
+    return {
+      missionId: "",
     };
+  },
+
+  watch: {},
+
+  computed: {},
+
+  methods: {},
+
+  mounted() {
+    this.missionId = this.$route.params.missionId;
+  },
+};
 </script>
 
 <style scoped>
 </style>
-
