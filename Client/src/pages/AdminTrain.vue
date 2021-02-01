@@ -1,6 +1,11 @@
 <template>
   <div>
     <div class="center">
+      <v-btn large round color="primary" class="addTraining" v-on:click.native="addTraining">
+        הוספת הכשרה
+        <v-icon left> done</v-icon>
+      </v-btn>
+
       <h1>ניהול הכשרות</h1>
       <br />
 
@@ -32,7 +37,9 @@ export default {
   mixins: [],
 
   methods: {
-
+    addTraining() {
+      this.$router.push("/add-training");
+    }
   },
 
   data() {
@@ -45,5 +52,9 @@ export default {
 </script>
 
 <style scoped>
+  .addTraining {
+    right: 0;
+    position: absolute;
+  }
 </style>
 

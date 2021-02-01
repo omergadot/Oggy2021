@@ -30,7 +30,6 @@ export default {
 
   methods: {
     moveToMission(missionId) {
-      alert(missionId);
       document.location.href = "/mission/" + missionId;
     },
     omer() {

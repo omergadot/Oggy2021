@@ -34,6 +34,10 @@ let router = new Router({
       path: '/admin-train',
       component: () => import('./pages/AdminTrain.vue'),
     },
+      {
+          path: '/add-training',
+          component: () => import('./pages/AddTraining.vue'),
+      },
   ]
 })
 
