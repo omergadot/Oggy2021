@@ -46,8 +46,8 @@ export default {
 
   mounted() {
     let self = this;
-    axios.get("/api/get_tasks").then(function (res) {
-      self.missions = res.data;
+    axios.get("/api/trainings").then(function (res) {
+      self.missions = res.data.trainings;
     });
   },
 };
