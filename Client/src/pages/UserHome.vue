@@ -1,5 +1,5 @@
-<template>
-  <div>
+<template >
+  <div class="pad">
     <div class="center">
       <h1>היי, אני אוגי</h1>
 
@@ -54,5 +54,10 @@ export default {
 </script>
 
 <style scoped>
+
+.pad{
+  padding-left: 10vw ;
+  padding-right: 10vw;
+}
 </style>
 
