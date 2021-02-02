@@ -36,7 +36,6 @@ module.exports = function (app, express, db) {
 
     app.post('/api/training', function (req, res) {
         const body = req.body;
-        console.log(req.body);
 
         if (!body) {
             return res.status(400).json({
