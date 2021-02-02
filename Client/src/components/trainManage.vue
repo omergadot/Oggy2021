@@ -65,10 +65,10 @@ export default {
       })
     },
     filterTrainings(isActive) {
-      this.displayedTrainings = this.displayedTrainings.filter(training => training._id !== item._id);
+        this.displayedTrainings = this.displayedTrainings.filter(training => training.isActive === isActive);
     },
     clearAll() {
-
+        this.displayedTrainings = this.trainings;
     }
   },
   data() {
