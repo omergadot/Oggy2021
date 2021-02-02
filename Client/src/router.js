@@ -23,7 +23,7 @@ let router = new Router({
       component: () => import('./pages/UserHome.vue'),
     },
     {
-      path: '/mission/:trainingId',
+      path: '/training/:trainingId',
       component: () => import('./pages/Training.vue'),
     },
     {
