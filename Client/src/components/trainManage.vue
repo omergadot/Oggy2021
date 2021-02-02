@@ -22,7 +22,7 @@
 
           <!--TODO: drag and drop -->
           <v-icon >drag_handle</v-icon>
-          <v-icon @click="deleteTrain">delete</v-icon>
+          <v-icon @click="deleteTrain(item)">delete</v-icon>
         </v-list-tile>
 
       </template>
@@ -43,13 +43,13 @@ export default {
     });
   },
   methods: {
-    deleteTrain: function (event) {
+    deleteTrain (item) {
       // `this` inside methods points to the Vue instance
-      alert('Hello ' + this.name + '!')
-      // `event` is the native DOM event
-      if (event) {
-        alert(event.target.tagName)
-      }
+console.log(item._id)      // `event` is the native DOM event
+      axios.delete("api/delete", item._id).then(response => {
+      }).catch(error => {
+        alert("שגיאה במחיקת רעיון")
+      })
     }
   },
   data() {
@@ -62,7 +62,9 @@ export default {
 </script>
 
 <style scoped>
-
+.v-icon{
+  padding-left: 3vw;
+}
 .pad{
   padding-left: 10vw ;
   padding-right: 10vw;
