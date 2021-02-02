@@ -1,3 +1,5 @@
+var {ObjectID} = require("mongoose");
+
 var dal = require("./DAL/database");
 var generalCalc = require("./BL/generalCalc.js");
 var config = require("./BL/config.js");
@@ -19,8 +21,23 @@ module.exports = function (app, express, db) {
         }).catch(err => console.log(err))
     });
 
+    app.get('/api/training/:id', async function(req, res) {
+        await Training.find({_id: req.params.id}, (err, trainings) => {
+            if (err) {
+                return res.status(400);
+            }
+            if (!trainings.length) {
+                return res
+                    .status(404)
+                    .json({ success: false, error: `Trainings not found` })
+            }
+            return res.status(200).json({ trainings })
+        }).catch(err => console.log(err))
+    });
+
     app.post('/api/training', function (req, res) {
         const body = req.body;
+        console.log(req.body);
 
         if (!body) {
             return res.status(400).json({
@@ -32,15 +49,16 @@ module.exports = function (app, express, db) {
         const training = new Training(body);
 
         if (!training) {
-            return res.status(400).json({ success: false, error: "error with training object" });
+            return res.send(400).json({ success: false, error: "error with training object" });
         }
 
         training.save()
             .then(() => {
-                return res.status(200);
+                console.log("hiiiiiii");
+                return res.send(200);
             })
             .catch(error => {
-                return res.status(400).json({
+                return res.send(400).json({
                     error,
                     message: 'error in saving',
                 })
