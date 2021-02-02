@@ -21,8 +21,7 @@ app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:500
 app.use(bodyParser.json({limit: '50mb'}))
 
 app.use(express.static(__dirname + '/dist/'))
-app.use('/public', express.static('public'));
-require('./routes.js')(app,express);
+require('./routes.js')(app,express, db);
 
 
 http.createServer(app).listen(httpPort);

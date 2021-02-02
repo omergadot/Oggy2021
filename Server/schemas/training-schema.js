@@ -5,9 +5,8 @@ const Training = new Schema(
     {
         email: { type: String, required: true },
         title: { type: String, required: true },
-        files: {
-            type: Array
-        }
+        link: { type: String, required: true },
+        isActive: {type: Boolean, required: true}
     },
     { timestamps: true },
 );
