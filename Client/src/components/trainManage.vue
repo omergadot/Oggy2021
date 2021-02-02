@@ -1,13 +1,6 @@
   <template >
     <v-list two-line class="pad">
       <template v-for="(item, index) in missions">
-        <v-subheader
-            v-if="item.title"
-            :key="item.title"
-        >
-          {{ item.title }}
-        </v-subheader>
-
         <v-divider
             :key="index"
             :inset="true"
@@ -69,14 +62,10 @@ export default {
 </script>
 
 <style scoped>
-.v-icon {
-  border: none;
-  margin-left:  2vw;
-}
 
 .pad{
   padding-left: 10vw ;
-  padding-right: 10vh;
+  padding-right: 10vw;
 }
 
 </style>
