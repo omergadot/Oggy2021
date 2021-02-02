@@ -37,7 +37,7 @@
                     ></v-checkbox>
 
                     <div class="form-group">
-                        <v-btn large round color="pink" type="submit" v-on:click="goBack">
+                        <v-btn large round color="pink" type="submit">
                             הוספה
                         </v-btn>
                     </div>
@@ -79,7 +79,8 @@
 
                 axios.post('/api/training', training, {
                 }).then((res) => {
-                    console.log(res)
+                    console.log(res);
+                    this.goBack();
                 })
             }
         },

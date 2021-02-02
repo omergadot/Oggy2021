@@ -1,3 +1,4 @@
+
 var dal = require("./DAL/database");
 var generalCalc = require("./BL/generalCalc.js");
 var config = require("./BL/config.js");
@@ -8,7 +9,21 @@ module.exports = function (app, express, db) {
     app.get('/api/trainings', async function(req, res) {
         await Training.find({}, (err, trainings) => {
             if (err) {
-                return res.send(400);
+                return res.status(400);
+            }
+            if (!trainings.length) {
+                return res
+                    .status(404)
+                    .json({ success: false, error: `Trainings not found` })
+            }
+            return res.status(200).json({ trainings })
+        }).catch(err => console.log(err))
+    });
+
+    app.get('/api/training/:id', async function(req, res) {
+        await Training.find({_id: req.params.id}, (err, trainings) => {
+            if (err) {
+                return res.status(400);
             }
             if (!trainings.length) {
                 return res
@@ -21,9 +36,10 @@ module.exports = function (app, express, db) {
 
     app.post('/api/training', function (req, res) {
         const body = req.body;
+        console.log(req.body);
 
         if (!body) {
-            return res.send(400).json({
+            return res.status(400).json({
                 success: false,
                 error: 'You must provide a comment',
             })
@@ -32,7 +48,7 @@ module.exports = function (app, express, db) {
         const training = new Training(body);
 
         if (!training) {
-            return res.send(400).json({ success: false, error: "error with training object" });
+            return res.status(400).json({ success: false, error: "error with training object" });
         }
 
         training.save()
@@ -40,7 +56,7 @@ module.exports = function (app, express, db) {
                 return res.send(200);
             })
             .catch(error => {
-                return res.send(400).json({
+                return res.status(400).json({
                     error,
                     message: 'error in saving',
                 })
