@@ -63,11 +63,8 @@ module.exports = function (app, express, db) {
             })
     });
 
-    app.delete('/api/delete', async function (req, res) {
-        const body = req.body;
-        console.log(req.body)
-        console.log(body._id)
-        await Training.findOneAndDelete({ _id: body.item._id }).then(idea => {
+    app.delete('/api/delete/:id', async function (req, res) {
+        await Training.findOneAndDelete({_id: req.params.id}).then(idea => {
             if (!idea) {
                 return res
                     .status(404)

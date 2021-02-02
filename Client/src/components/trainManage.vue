@@ -44,9 +44,8 @@ export default {
   },
   methods: {
     deleteTrain (item) {
-      // `this` inside methods points to the Vue instance
-console.log(item._id)      // `event` is the native DOM event
-      axios.delete("api/delete", item._id).then(response => {
+      axios.delete("api/delete/" + item._id).then(response => {
+        this.missions = this.missions.filter(mission => mission._id !== item._id);
       }).catch(error => {
         alert("שגיאה במחיקת רעיון")
       })
