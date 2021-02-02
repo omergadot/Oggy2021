@@ -6,8 +6,18 @@
     <h2>{{training.title}}</h2>
     <h4>נא ללחוץ על הקישור ולאשר את ההדרכה</h4>
 
-    <h4>{{training.link}}</h4>
-    <v-btn large round color="pink">
+    <br/>
+    <v-btn
+            color="blue-grey"
+            class="white--text downloadBtn"
+            @click="enableButton()"
+            :href="training.link"
+    >
+     הורדה
+      <v-icon left dark>download</v-icon>
+    </v-btn>
+    <br/> <br/>
+    <v-btn large round color="pink" :disabled="isButtonDisabled" @click="goBack()">
       סיימתי
       <v-icon left> done</v-icon>
     </v-btn>
@@ -35,7 +45,8 @@ export default {
   data() {
     return {
       trainingId: "",
-      training: {}
+      training: {},
+      isButtonDisabled: true
     };
   },
 
@@ -43,7 +54,16 @@ export default {
 
   computed: {},
 
-  methods: {},
+  methods: {
+    enableButton() {
+      if (this.training.link) {
+        this.isButtonDisabled = false
+      }
+    },
+    goBack() {
+      this.$router.push('/admin-train')
+    }
+  },
 
 };
 </script>
