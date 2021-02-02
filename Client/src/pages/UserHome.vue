@@ -48,6 +48,7 @@ export default {
     let self = this;
     axios.get("/api/trainings").then(function (res) {
       self.missions = res.data.trainings;
+      console.log(res.data.trainings)
     });
   },
 };
