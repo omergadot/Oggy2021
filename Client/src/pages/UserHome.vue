@@ -11,7 +11,7 @@
       <h4 class="right">רוצה להציל את אוגי?</h4>
 
       <div v-for="mis in missions" :key="mis._id">
-        <mission v-on:click.native="moveToMission('18')" :misObj="mis"></mission>
+        <mission v-on:click.native="moveToMission(mis._id)" :misObj="mis"></mission>
       </div>
     </div>
   </div>
