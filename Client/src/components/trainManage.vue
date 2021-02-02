@@ -1,6 +1,19 @@
   <template >
+    <div>
+    <v-btn @click="filterTrainings(true)" >
+      פעילות
+    </v-btn >
+    <v-divider vertical style="margin-top: 0px"></v-divider>
+    <v-btn @click="filterTrainings(false)" >
+      לא פעילות
+    </v-btn>
+    <v-divider vertical style="margin-top: 0px"></v-divider>
+    <v-btn @click="clearAll()"  >
+      הכל
+    </v-btn>
+
     <v-list two-line class="pad">
-      <template v-for="(item, index) in missions">
+      <template v-for="(item, index) in displayedTrainings">
         <v-divider
             :key="index"
             :inset="true"
@@ -27,10 +40,10 @@
 
       </template>
     </v-list>
+    </div>
   </template>
 
 <script>
-import mission from "@/components/mission";
 
 const axios = require("axios");
 
@@ -39,21 +52,29 @@ export default {
   mounted() {
     let self = this;
     axios.get("/api/trainings").then(function (res) {
-      self.missions = res.data.trainings;
+      self.trainings = res.data.trainings;
+      self.displayedTrainings = res.data.trainings;
     });
   },
   methods: {
     deleteTrain (item) {
       axios.delete("api/delete/" + item._id).then(response => {
-        this.missions = this.missions.filter(mission => mission._id !== item._id);
+        this.displayedTrainings = this.displayedTrainings.filter(training => training._id !== item._id);
       }).catch(error => {
         alert("שגיאה במחיקת רעיון")
       })
+    },
+    filterTrainings(isActive) {
+      this.displayedTrainings = this.displayedTrainings.filter(training => training._id !== item._id);
+    },
+    clearAll() {
+
     }
   },
   data() {
     return {
-      missions: [],
+      trainings: [],
+      displayedTrainings: []
     }
   },
 

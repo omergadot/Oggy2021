@@ -6,7 +6,7 @@
     ></v-divider>
 
     <v-list-tile
-        :key="misObj.title"
+        :key="training.title"
         avatar
         @click="true"
     >
@@ -15,8 +15,8 @@
       </v-list-tile-avatar>
 
       <v-list-tile-content>
-        <v-list-tile-title v-html="misObj.title"></v-list-tile-title>
-        <v-list-tile-sub-title v-html="misObj.email"></v-list-tile-sub-title>
+        <v-list-tile-title v-html="training.title"></v-list-tile-title>
+        <v-list-tile-sub-title v-html="training.email"></v-list-tile-sub-title>
       </v-list-tile-content>
 
       <!--TODO: drag and drop -->
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  props:["misObj"]
+  props:["training"]
 };
 </script>
 

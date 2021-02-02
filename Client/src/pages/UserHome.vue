@@ -10,32 +10,32 @@
     <div>
       <h4 class="right">רוצה להציל את אוגי?</h4>
 
-      <div v-for="mis in missions" :key="mis._id">
-        <mission v-on:click.native="moveToMission(mis._id)" :misObj="mis"></mission>
+      <div v-for="training in trainings" :key="training._id">
+        <trainingView v-on:click.native="moveToTraining(training._id)" :training="training"></trainingView>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import mission from "@/components/mission.vue";
+import trainingView from "@/components/trainingView.vue";
 const axios = require("axios");
 
 export default {
   data() {
     return {
-      missions: [],
+      trainings: [],
     };
   },
   components: {
-    mission,
+    trainingView,
   },
 
   mixins: [],
 
   methods: {
-    moveToMission(missionId) {
-      document.location.href = "/mission/" + missionId;
+    moveToTraining(trainingId) {
+      document.location.href = "/training/" + trainingId;
     }
   },
 
@@ -44,7 +44,7 @@ export default {
   mounted() {
     let self = this;
     axios.get("/api/trainings").then(function (res) {
-      self.missions = res.data.trainings;
+      self.trainings = res.data.trainings;
       console.log(res.data.trainings)
     });
   },

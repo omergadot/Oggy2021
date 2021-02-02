@@ -11,19 +11,6 @@
       </div>
       <br />
 
-      <v-btn @click="activeTrains" >
-      פעילות
-      </v-btn >
-      <v-divider vertical style="margin-top: 0px"></v-divider>
-      <v-btn @click="inactiveTrains" >
-        לא פעילות
-      </v-btn>
-      <v-divider vertical style="margin-top: 0px"></v-divider>
-      <v-btn @click="getAll"  >
-        הכל
-      </v-btn>
-    </div>
-    <div class="center">
       <trainManage ></trainManage>
 
     </div>
