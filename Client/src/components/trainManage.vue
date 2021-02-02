@@ -59,7 +59,8 @@ export default {
   methods: {
     deleteTrain (item) {
       axios.delete("api/delete/" + item._id).then(response => {
-        this.displayedTrainings = this.trainings.filter(training => training._id !== item._id);
+          this.trainings = this.trainings.filter(training => training._id !== item._id);
+          this.displayedTrainings = this.trainings;
       }).catch(error => {
         alert("שגיאה במחיקת רעיון")
       })
