@@ -8,7 +8,7 @@ module.exports = function (app, express, db) {
     app.get('/api/trainings', async function(req, res) {
         await Training.find({}, (err, trainings) => {
             if (err) {
-                return res.status(400);
+                return res.send(400);
             }
             if (!trainings.length) {
                 return res
@@ -23,7 +23,7 @@ module.exports = function (app, express, db) {
         const body = req.body;
 
         if (!body) {
-            return res.status(400).json({
+            return res.send(400).json({
                 success: false,
                 error: 'You must provide a comment',
             })
@@ -32,21 +32,41 @@ module.exports = function (app, express, db) {
         const training = new Training(body);
 
         if (!training) {
-            return res.status(400).json({ success: false, error: "error with training object" });
+            return res.send(400).json({ success: false, error: "error with training object" });
         }
 
         training.save()
             .then(() => {
-                return res.status(200);
+                return res.send(200);
             })
             .catch(error => {
-                return res.status(400).json({
+                return res.send(400).json({
                     error,
                     message: 'error in saving',
                 })
             })
     });
 
+    app.delete('/api/delete', async function (req, res) {
+        const body = req.body;
+        console.log(req.body)
+        console.log(body._id)
+        await Training.findOneAndDelete({ _id: body.item._id }).then(idea => {
+            if (!idea) {
+                return res
+                    .status(404)
+                    .json({ success: false, error: ` not found` })
+            }
+            return res.status(200).json({ idea })
+
+
+        }).catch(err => {
+            return res.status(400).json({
+                err
+            })
+
+    });
+    } )
 };
 
 function isLoggedIn(req, res, next) {
